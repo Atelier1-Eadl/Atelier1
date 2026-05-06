@@ -38,7 +38,7 @@ function Dashboard() {
         <div className="right">
           <h2> Carte (à venir)</h2>
           <div className="map-placeholder">
-            Carte interactive ici
+            Carte interactive '' ici :
           </div>
         </div>
       </div>
