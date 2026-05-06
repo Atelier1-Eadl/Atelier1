@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background-color: #0f172a;
+  color: white;
+}
+
+.dashboard {
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.red { background: #dc2626; }
+.orange { background: #f97316; }
+.green { background: #16a34a; }
+
+/* LAYOUT */
+.content {
+  display: flex;
+  gap: 20px;
+}
+
+.left {
+  flex: 2;
+}
+
+.right {
+  flex: 1;
+}
+
+/* ALERT */
+.alert-card {
+  background: #1e293b;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-left: 5px solid red;
+  transition: 0.3s;
+}
+
+.alert-card:hover {
+  transform: scale(1.02);
+}
+
+.alert-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge {
+  background: red;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+}
+
+/* MAP */
+.map-placeholder {
+  background: #1e293b;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
