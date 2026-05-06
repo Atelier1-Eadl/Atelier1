@@ -20,6 +20,6 @@ public interface SensorMapper {
     @Mapping(target = "lastSeenAt", ignore = true)
     @Mapping(target = "status", ignore = true)
     @Mapping(target = "active", constant = "true")
-    @Mapping(target = "generationFrequencyMs", defaultValue = "10000")
+    @Mapping(target = "generationFrequencyMs", defaultValue = "10000L")
     Sensor toEntity(CreateSensorRequest request);
 }
