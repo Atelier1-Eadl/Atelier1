@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    producer:
+      acks: all
+
+  jpa:
+    show-sql: false
+
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: ${EUREKA_URL}
+
+cloud:
+  config:
+    enabled: true
+    uri: ${CONFIG_SERVER_URI}
+
+logging:
+  level:
+    com.smartcity.iot: INFO
+    root: WARN
+
+app:
+  simulation:
+    enabled: true
+    default-frequency-ms: 15000
+    offline-threshold-seconds: 90
