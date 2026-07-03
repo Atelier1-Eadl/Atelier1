@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS urbanhub;
+
+USE urbanhub;
+
+CREATE TABLE IF NOT EXISTS sensor_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sensor_id VARCHAR(100) NOT NULL,
+    value DOUBLE NOT NULL,
+    timestamp DATETIME NOT NULL,
+    source VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

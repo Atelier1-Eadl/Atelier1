@@ -43,6 +43,7 @@ const start = async () => {
   try {
     await connectRedis();
     await connectKafka();
+    
 
     server.listen(process.env.PORT_GATEWAY, () => {
       console.log("🚪 GATEWAY RUNNING ON " + process.env.PORT_GATEWAY);

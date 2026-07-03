@@ -1,0 +1,27 @@
+name: Full System CI (Docker Compose)
+
+on:
+  push:
+
+jobs:
+  integration-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Start system
+        run: docker compose up -d --build
+
+      - name: Wait for services
+        run: sleep 20
+
+      - name: Run ingestion test (curl)
+        run: |
+          curl -X POST http://localhost:3000/ingestion/ingest \
+          -H "Content-Type: application/json" \
+          -d '{"sensorId":"S1","value":42}'
+
+      - name: Stop system
+        run: docker compose down
