@@ -1,6 +1,6 @@
 const { publishSensorData } = require("../services/ingestion.service");
 
-// 🔴 MOCK Kafka (OBLIGATOIRE)
+//  MOCK Kafka (OBLIGATOIRE)
 const mockSend = jest.fn();
 
 jest.mock("../../../config/kafka", () => ({
@@ -24,14 +24,14 @@ describe("Ingestion Service", () => {
 
     await publishSensorData(data);
 
-    // ✔ Kafka called
+    //  Kafka called
     expect(mockSend).toHaveBeenCalledTimes(1);
 
-    // ✔ topic correct
+    //  topic correct
     const callArgs = mockSend.mock.calls[0][0];
     expect(callArgs.topic).toBe("sensor-data");
 
-    // ✔ message content
+    //  message content
     const message = JSON.parse(callArgs.messages[0].value);
 
     expect(message.sensorId).toBe("S1");

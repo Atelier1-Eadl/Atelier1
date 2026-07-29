@@ -59,7 +59,7 @@ jest.mock("../../../config/kafka", () => ({
 Vérification :
 expect(mockSend).toHaveBeenCalled();
 
-👉 Cela permet de tester sans infrastructure externe.
+ Cela permet de tester sans infrastructure externe.
 
 3.3 Tests avec stubs
 

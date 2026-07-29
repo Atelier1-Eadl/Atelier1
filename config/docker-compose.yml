@@ -48,3 +48,30 @@ services:
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
     depends_on:
       - kafka
+
+  ingestion-service:
+    build:
+      context: ./ingestion-service
+    container_name: ingestion_service_new
+    ports:
+      - "${PORT_INGESTION}:5001"
+    depends_on:
+      - kafka
+      - redis
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      KAFKA_BROKER: kafka:29092
+
+
+  gateway:
+    build:
+      context: ./gateway
+    container_name: gateway_new
+    ports:
+      - "${PORT_GATEWAY}:6000"
+    depends_on:
+      - ingestion-service
+    environment:
+      PORT: 6000
+      INGESTION_URL: http://ingestion-service:5001

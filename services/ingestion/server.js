@@ -6,6 +6,7 @@ const router = require("./routes/ingestion.routes");
 
 const { connectRedis } = require("../../config/redis");
 const { connectKafka } = require("../../config/kafka");
+const setupSwagger = require("./conifg/swagger");
 
 
 require("dotenv").config({ path: "../../.env" })
@@ -19,7 +20,7 @@ app.use(cors({
   credentials: true
 }))
 
-
+setupSwagger(app);
 
 app.use(cookieParser())
 

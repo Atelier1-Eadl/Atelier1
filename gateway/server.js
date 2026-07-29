@@ -13,6 +13,7 @@ const http = require("http");
   
 const { initWebSocket, broadcast } = require("./websocket/socket");
 const router = require("./routes/alert.route");
+const ingestionProxy = require("./proxi/ingestionproxi");
 const app = express();
 
 
@@ -36,6 +37,7 @@ app.use((req, res, next) => {
 
 
 app.use("/api", router);
+app.use("/api/ingestion", ingestionProxy);
 app.use("/api/alerts", notificationProxy);
 
 
